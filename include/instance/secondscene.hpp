@@ -29,6 +29,7 @@ public:
 
     void doInternalTimedActions();
     void resetTimeHandlers(ClockHandler &clockHandler);
+    
     void onExit();
     void resumeScene();
 };

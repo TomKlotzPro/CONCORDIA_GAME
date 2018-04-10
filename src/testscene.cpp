@@ -3,7 +3,8 @@
  */
 
 #include "instance/testscene.hpp"
-
+TestScene::TestScene(SceneManager *sceneManager)
+    : Scene::Scene(sceneManager) {}
 TestScene::~TestScene(){
     std::cout << "My destructor have been called. Yay!" << std::endl;
 }

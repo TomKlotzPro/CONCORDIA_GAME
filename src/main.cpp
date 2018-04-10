@@ -9,14 +9,14 @@
  * that's why "Test" herited from abstract Class call Scenez
  */
 #include "Concordia_Game/concrete/game.hpp"
-#include "instance/testscene.hpp"
+#include "instance/menu.hpp"
 
 int main() {
   /*
    * object game created with three variables (size of the window) width / height and the name of the frame
-   * then the methods game start need an Scene object 
+   * then the methods game start need an Scene object
    */
   Game game(512, 256, std::string("Concordia_Game"));
-  game.gameStart(new TestScene());
+  game.gameStart(new Menu());
   return 0;
 }

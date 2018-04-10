@@ -1,33 +1,29 @@
 /* File: testscene.hpp
  * Author: Klotz Tom
  */
-#ifndef TESTSCENE_HPP
-#define TESTSCENE_HPP
+#ifndef MENU_HPP
+#define MENU_HPP
 
 #include <iostream>
 
 #include "Concordia_Game/abstract/scene.hpp"
 #include "Concordia_Game/components/spritedentity.hpp"
-#include "instance/character.hpp"
-#include "instance/secondscene.hpp"
+#include "instance/testscene.hpp"
 /*
  * Object Herited from Scene class
  * Use same methods
  */
-class TestScene : public Scene {
+class Menu : public Scene {
 private:
   //Background and character texture
-  sf::Texture charTexture;
-  sf::Texture bgTexture;
-  //sf::Texture badGuyTexture;
 
-  //badGuy badguy;
-  Character character;
+  sf::Texture bgTexture;
+
+
   SpritedEntity bg;
 
 public:
-  TestScene(SceneManager *sceneManager);
-  ~TestScene();
+  ~Menu();
 
   void start();
   void update();

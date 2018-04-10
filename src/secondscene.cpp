@@ -33,7 +33,9 @@ void SecondScene::handleEvent(sf::Event event, sf::RenderWindow &screen) {
   }
 }
 
-void SecondScene::drawEntities(sf::RenderWindow &window) { window.draw(bg.getSprite()); }
+void SecondScene::drawEntities(sf::RenderWindow &window) {
+  window.draw(bg.getSprite());
+}
 
 void SecondScene::doInternalTimedActions() {}
 void SecondScene::resetTimeHandlers(ClockHandler &clockHandler) {}
