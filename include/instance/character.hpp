@@ -19,8 +19,17 @@
 class Character : public AnimatedEntity, public ControlableEntity {
 private:
   sf::Vector2f movement;
+  sf::Vector2f control;
   TimeHandler animationTimeHandler;
   FacingPosition lastFacingPosition;
+
+  float x ;
+  float y ;
+  //NEED TO ADD IT IN THE CONSCTUCTOR
+  float static const limiteUp = 0;
+  float static const limiteLeft = 0;
+  float static const limiteDown = 200;
+  float static const limiteRight = 455;
 
   bool facingUp;
   bool facingDown;

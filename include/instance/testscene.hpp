@@ -21,7 +21,7 @@ private:
   sf::Texture bgTexture;
   //sf::Texture badGuyTexture;
 
-  //badGuy badguy;
+  //BadGuy badGuy;
   Character character;
   SpritedEntity bg;
 

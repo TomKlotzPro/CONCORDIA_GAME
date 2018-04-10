@@ -1,8 +1,9 @@
 /* File: character.cpp
  * Author: Klotz Tom
  */
-
+#include <iostream>
 #include "instance/character.hpp"
+
 
 Character::Character(sf::Texture const &texture, int spriteX, int spriteY,
                      int spriteW, int spriteH, int animationInitialXPosition, int animationFinalXPosition,
@@ -11,17 +12,25 @@ Character::Character(sf::Texture const &texture, int spriteX, int spriteY,
     : AnimatedEntity::AnimatedEntity(
           texture, spriteX, spriteY, spriteW, spriteH, animationInitialXPosition, animationFinalXPosition,
           animationInitialYPosition, animationFinalYPosition, animationFramesPerSeconds) {
+
   this->movement = sf::Vector2f(0, 0);
+  this->control = this->getSpritePosition();
+  this->x = control.x;
+  this->y = control.y;
+
+  std::cout << x << y << std::endl;
   facingUp = false;
   facingDown = false;
   facingLeft = false;
   facingRight = false;
   lastFacingPosition = DOWN;
+
 }
 
 Character::Character() : AnimatedEntity::AnimatedEntity() {}
 
 void Character::controlEntity(sf::Keyboard::Key key, bool release) {
+
   switch (key) {
   case sf::Keyboard::Z:
     if (!facingLeft && !facingRight)
@@ -30,8 +39,18 @@ void Character::controlEntity(sf::Keyboard::Key key, bool release) {
     if (release) {
       lastFacingPosition = UP;
       this->movement.y = 0;
-    } else
-      this->movement.y = -2;
+    } else{
+      this->control = this->getSpritePosition();
+      this->y = control.y;
+      if(this->y<= limiteUp){}
+      else
+        this->movement.y = -2;
+
+      this->control = this->getSpritePosition();
+
+
+      std::cout <<"X :"<< this->x  << ",Y:"<< this->y << std::endl;
+    }
     break;
   case sf::Keyboard::Q:
     if (!facingUp && !facingDown)
@@ -39,8 +58,19 @@ void Character::controlEntity(sf::Keyboard::Key key, bool release) {
     if (release) {
       lastFacingPosition = LEFT;
       this->movement.x = 0;
-    } else
-      this->movement.x = -2;
+    } else{
+      this->control = this->getSpritePosition();
+      this->x = control.x;
+
+      if(this->x<= limiteLeft){}
+      else
+        this->movement.x = -2;
+
+      this->control = this->getSpritePosition();
+
+
+      std::cout <<"X :"<< this->x  << ",Y:"<< this->y << std::endl;
+    }
     break;
   case sf::Keyboard::S:
     if (!facingLeft && !facingRight)
@@ -48,8 +78,18 @@ void Character::controlEntity(sf::Keyboard::Key key, bool release) {
     if (release) {
       lastFacingPosition = DOWN;
       this->movement.y = 0;
-    } else
-      this->movement.y = 2;
+    } else{
+      this->control = this->getSpritePosition();
+      this->y = control.y;
+      if(this->y >= limiteDown){}
+      else
+        this->movement.y = 2;
+
+      this->control = this->getSpritePosition();
+
+
+      std::cout <<"X :"<< this->x  << ",Y:"<< this->y << std::endl;
+    }
     break;
   case sf::Keyboard::D:
     if (!facingUp && !facingDown)
@@ -57,8 +97,18 @@ void Character::controlEntity(sf::Keyboard::Key key, bool release) {
     if (release) {
       lastFacingPosition = RIGHT;
       this->movement.x = 0;
-    } else
-      this->movement.x = 2;
+    } else{
+      this->control = this->getSpritePosition();
+      this->x = control.x;
+      if(this->x >= limiteRight){}
+      else
+        this->movement.x = 2;
+
+      this->control = this->getSpritePosition();
+
+
+      std::cout <<"X :"<< this->x  << ",Y:"<< this->y << std::endl;
+    }
     break;
   }
 }

@@ -22,7 +22,7 @@ void TestScene::start() {
       this->bgTexture, std::string("images/mainBg.png"), 512, 256);
   bg = SpritedEntity(this->bgTexture, 0, 0, 512, 256);
 
-  character.setSpritePosition(sf::Vector2f(0, 0));
+  character.setSpritePosition(sf::Vector2f(125, 125));
   bg.setSpritePosition(sf::Vector2f(0, 0));
 }
 
